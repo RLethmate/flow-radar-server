@@ -1,0 +1,17 @@
+[Unit]
+Description=Flow-Radar (ATLAS Quick-Check) backend
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/flow-radar
+ExecStart=/usr/bin/node server.js
+Restart=always
+RestartSec=3
+Environment=PORT=3000
+# Optional: uncomment and set to require a token for POST /api/reset
+# Environment=ADMIN_TOKEN=change-me
+User=www-data
+
+[Install]
+WantedBy=multi-user.target
